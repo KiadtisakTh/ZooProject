@@ -1,10 +1,12 @@
 // src/components/Footer.js
 import React from 'react';
+import './css/Footer.css';  // เปลี่ยนเส้นทางให้ถูกต้อง
+
 
 function Footer() {
   return (
-    <footer className="bg-gray-800 p-4 mt-8">
-      <div className="container mx-auto text-center text-white">
+    <footer className="footer">
+      <div className="container">
         &copy; 2024 Zoo Animals. All rights reserved.
       </div>
     </footer>

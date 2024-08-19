@@ -1,0 +1,32 @@
+.card {
+  width: 300px;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f8f8f8;
+  text-align: left; /* Aligns content to the left */
+  margin: auto;
+  
+}
+
+.animal-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.animal-info {
+  margin-top: 10px;
+}
+
+.animal-info h3 {
+  font-size: 1.2em;
+  color: #333;
+  margin: 0;
+}
+
+.animal-info p {
+  font-size: 1em;
+  color: #555;
+  margin: 5px 0;
+}

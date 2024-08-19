@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import AnimalCard from './components/AnimalCard';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import './App.css'; // นำเข้าไฟล์ CSS ถ้าคุณแยกเก็บไว้ต่างหาก
 
 function App() {
   const [animals, setAnimals] = useState([]);
@@ -21,9 +22,9 @@ function App() {
   return (
     <>
       <Navbar />
-      <div className="container mx-auto p-4">
+      <div className="container">
         <h1 className="text-4xl text-center my-8">Zoo Animals</h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid">
           {animals.map(animal => (
             <AnimalCard key={animal.id} animal={animal} />
           ))}
