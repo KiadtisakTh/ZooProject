@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // เปลี่ยนจาก Switch เป็น Routes
 import AnimalCard from './components/AnimalCard';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import './App.css'; // นำเข้าไฟล์ CSS ถ้าคุณแยกเก็บไว้ต่างหาก
+import Login from './components/Login'; // นำเข้าคอมโพเนนต์ Login
+import './App.css';
 
 function App() {
   const [animals, setAnimals] = useState([]);
@@ -20,18 +22,25 @@ function App() {
   }, []);
 
   return (
-    <>
+    <Router>
       <Navbar />
       <div className="container">
-        <h1 className="text-4xl text-center my-8">Zoo Animals</h1>
-        <div className="grid">
-          {animals.map(animal => (
-            <AnimalCard key={animal.id} animal={animal} />
-          ))}
-        </div>
+        <Routes> {/* เปลี่ยนจาก Switch เป็น Routes */}
+          <Route path="/" element={(
+            <>
+              <h1 className="text-4xl text-center my-8">Zoo Animals</h1>
+              <div className="grid">
+                {animals.map(animal => (
+                  <AnimalCard key={animal.id} animal={animal} />
+                ))}
+              </div>
+            </>
+          )} />
+          <Route path="/login" element={<Login />} /> {/* เปลี่ยนจาก component เป็น element */}
+        </Routes>
       </div>
       <Footer />
-    </>
+    </Router>
   );
 }
 

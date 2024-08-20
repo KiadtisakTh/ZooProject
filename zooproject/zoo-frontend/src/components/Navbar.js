@@ -1,5 +1,5 @@
-// src/components/Navbar.js
 import React from 'react';
+import { Link } from 'react-router-dom';  // นำเข้า Link จาก react-router-dom
 import './css/Navbar.css';
 
 function Navbar() {
@@ -8,10 +8,10 @@ function Navbar() {
       <div className="container">
         <div className="logo">Zoo Animals</div>
         <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/contact">Contact</a></li>
-          <li><a href="/contact">Login</a></li>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/about">About</Link></li>
+          <li><Link to="/contact">Contact</Link></li>
+          <li><Link to="/login">Login</Link></li>  {/* เปลี่ยนจาก {% url 'login' %} เป็น /login */}
         </ul>
       </div>
     </nav>

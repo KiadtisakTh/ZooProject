@@ -14,15 +14,18 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django import views
 from django.conf import settings
 from django.conf.urls.static import static
-from django.urls import path
+from django.urls import path , include
 from django.contrib import admin
 from django.views.generic import TemplateView
 from zoo_app.views import AnimalList
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/animals/', AnimalList.as_view(), name='animal-list'),
     path('', TemplateView.as_view(template_name="index.html")),  # เส้นทางสำหรับหน้าเว็บหลัก
+    path('api/', include('zoo_app.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

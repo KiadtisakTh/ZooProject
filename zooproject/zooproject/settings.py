@@ -54,9 +54,15 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:3000",  # อนุญาตให้ React ที่รันบนพอร์ต 3000 เชื่อมต่อได้
+]
+ALLOWED_HOSTS = [
+    'localhost', '127.0.0.1'
+    'http://localhost:3000'
+    ]
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
+    "http://localhost:3000",  # อนุญาตให้ React ที่รันบนพอร์ต 3000 เชื่อมต่อได้
 ]
 
 ROOT_URLCONF = 'zooproject.urls'
