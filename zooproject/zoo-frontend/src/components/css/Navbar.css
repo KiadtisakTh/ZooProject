@@ -1,23 +1,30 @@
 /* src/components/css/Navbar.css */
+.container {
+  width: 100%;
+  padding: 20px;
+  margin-top: 70px; /* เพิ่ม margin-top ให้มากกว่า or เท่ากับความสูงของ Navbar */
+}
 
 .navbar {
   background-color: #333;
   padding: 10px 10px;
   width: 100%;
   height: 70px;
-  position: fixed; /* เปลี่ยนจาก absolute เป็น fixed */
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* เพิ่มเงาให้กับ Navbar */
 }
+
 
 .navbar .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1800px; /* ลดขนาด max-width เพื่อให้เหมาะสมกับหน้าจอ */
+  max-width: 1800px;
   margin: 0 auto;
-  padding: 0 20px; /* เพิ่ม padding ซ้าย-ขวา */
+  padding: 0 10px;
 }
 
 .navbar .logo {
@@ -29,12 +36,13 @@
 .navbar ul {
   list-style: none;
   margin: 0;
-  padding: 20px;
+  padding: 30px;
   display: flex;
 }
 
 .navbar ul li {
   margin-left: 15px;
+  color: white;  /* เพิ่มสไตล์นี้เพื่อให้ข้อความภายใน <li> เป็นสีขาว */
 }
 
 .navbar ul li a {
@@ -43,5 +51,20 @@
 }
 
 .navbar ul li a:hover {
+  text-decoration: underline;
+}
+/* src/components/css/Navbar.css */
+
+.logout-button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 15px;
+  text-align: center;
+  padding: 0px;
+}
+
+.logout-button:hover {
   text-decoration: underline;
 }

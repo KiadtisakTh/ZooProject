@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // เปลี่ยนจาก Switch เป็น Routes
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import AnimalCard from './components/AnimalCard';
 import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import Login from './components/Login'; // นำเข้าคอมโพเนนต์ Login
+//import Footer from './components/Footer';
+import Login from './components/Login';
+import CrudPage from './components/CrudPage'; // นำเข้าคอมโพเนนต์ CrudPage
 import './App.css';
 
 function App() {
@@ -25,7 +26,7 @@ function App() {
     <Router>
       <Navbar />
       <div className="container">
-        <Routes> {/* เปลี่ยนจาก Switch เป็น Routes */}
+        <Routes>
           <Route path="/" element={(
             <>
               <h1 className="text-4xl text-center my-8">Zoo Animals</h1>
@@ -36,10 +37,11 @@ function App() {
               </div>
             </>
           )} />
-          <Route path="/login" element={<Login />} /> {/* เปลี่ยนจาก component เป็น element */}
+          <Route path="/login" element={<Login />} />
+          <Route path="/CrudPage" element={<CrudPage />} /> {/* เพิ่มเส้นทางสำหรับ CrudPage */}
         </Routes>
       </div>
-      <Footer />
+      
     </Router>
   );
 }

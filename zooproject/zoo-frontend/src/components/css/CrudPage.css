@@ -1,0 +1,92 @@
+.crud-page {
+  padding: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group input, .form-group textarea {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.animals-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.animal-card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 350px;
+  background-color: #f9f9f9;
+}
+
+.animal-card img {
+  max-width: 100%;
+  max-height: 150px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.animal-card p {
+  margin: 5px 0;
+  text-align: center;
+  flex-grow: 1;
+}
+
+/* ปุ่มแก้ไขและลบ */
+.animal-card .button-group {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.animal-card .button-group button {
+  flex: 1; /* ทำให้ปุ่มมีขนาดเท่ากัน */
+  padding: 10px;
+  margin: 0 5px;
+}
+
+.animal-card .button-group .edit-button {
+  background-color: #4CAF50; /* สีเขียวสำหรับปุ่มแก้ไข */
+}
+
+.animal-card .button-group .edit-button:hover {
+  background-color: #6ae270; /* สีเขียวเข้มขึ้นเมื่อ hover */
+}
+
+.animal-card .button-group .delete-button {
+  background-color: #d0271b; /* สีแดงสำหรับปุ่มลบ */
+}
+
+.animal-card .button-group .delete-button:hover {
+  background-color: #e53935; /* สีแดงเข้มขึ้นเมื่อ hover */
+}
+
+.edit-form {
+  margin-top: 20px;
+}

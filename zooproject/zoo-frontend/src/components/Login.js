@@ -25,7 +25,7 @@ function Login() {
   const [error, setError] = useState('');
   const navigate = useNavigate(); // ใช้ useNavigate สำหรับการเปลี่ยนเส้นทาง
 
-  const csrftoken = getCookie('csrftoken');
+  const csrftoken = getCookie('csrftoken');  // ประกาศ csrftoken ที่นี่
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -40,7 +40,7 @@ function Login() {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'X-CSRFToken': csrftoken,  // ส่ง CSRF token ไปด้วยถ้าจำเป็น
+                'X-CSRFToken': csrftoken,
             },
             body: JSON.stringify({
                 username: username,
@@ -52,7 +52,9 @@ function Login() {
 
         if (response.ok) {
             setError('');
-            navigate('/');  // เปลี่ยนเส้นทางไปยังหน้าหลักเมื่อเข้าสู่ระบบสำเร็จ
+            localStorage.setItem('username', username);
+            localStorage.setItem('is_admin', data.is_admin);  // สมมติว่า API ส่งข้อมูล is_admin มาด้วย
+            navigate('/');
         } else {
             setError(data.message || 'Login failed');
         }

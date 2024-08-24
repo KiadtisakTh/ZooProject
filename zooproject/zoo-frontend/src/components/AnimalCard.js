@@ -1,5 +1,5 @@
 import React from 'react';
-import './css/AnimalCard.css';  // Ensure the correct path for the CSS file
+import './css/AnimalCard.css';  // ตรวจสอบเส้นทางนี้ให้ถูกต้อง
 
 function AnimalCard({ animal }) {
   return (

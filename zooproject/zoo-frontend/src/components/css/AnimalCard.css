@@ -1,22 +1,31 @@
+/* กำหนดขนาดการ์ด */
 .card {
-  width: 300px;
-  padding: 10px;
+  width: 100%;
+  max-width: 300px; /* กำหนดขนาดสูงสุดให้การ์ด */
+  padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background-color: #f8f8f8;
-  text-align: left; /* Aligns content to the left */
-  margin: auto;
-  
+  text-align: left;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* กระจายพื้นที่ระหว่างเนื้อหา */
+  height: 100%; /* ทำให้การ์ดมีขนาดเท่ากัน */
 }
 
+/* การตั้งค่าสำหรับรูปภาพ */
 .animal-image {
   width: 100%;
-  height: auto;
+  height: 150px; /* กำหนดความสูงให้รูปภาพ */
+  object-fit: cover; /* ปรับขนาดรูปภาพให้ครอบคลุมพื้นที่อย่างเหมาะสม */
   border-radius: 10px;
 }
 
+/* การตั้งค่าสำหรับข้อมูลสัตว์ */
 .animal-info {
   margin-top: 10px;
+  flex-grow: 1; /* ขยายพื้นที่สำหรับข้อมูลเพื่อให้การ์ดมีความสูงเท่ากัน */
 }
 
 .animal-info h3 {
@@ -29,4 +38,26 @@
   font-size: 1em;
   color: #555;
   margin: 5px 0;
+}
+
+/* การจัดการวาง layout ให้มี 6 การ์ดต่อแถว */
+.animals-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* จัดให้มีคอลัมน์ที่ยืดหยุ่น */
+  gap: 30px; /* เพิ่มระยะห่างระหว่างการ์ด */
+  padding: 20px; /* เพิ่ม padding รอบๆ เพื่อให้การ์ดไม่ติดกับขอบ */
+  justify-content: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* ปรับให้มีคอลัมน์ยืดหยุ่น */
+  gap: 30px; /* เพิ่มระยะห่างระหว่างการ์ด */
+  padding: 20px; /* เพิ่ม padding รอบๆ เพื่อให้การ์ดไม่ติดกับขอบ */
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  padding: 20px;
 }

@@ -25,7 +25,12 @@ SECRET_KEY = 'django-insecure-hy87utej+du^&&%*3*+3ue7_@i03mm$_p^huphc2z&cnorn6nm
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost', 
+    '127.0.0.1',
+    '127.0.0.1:8000',
+    'http://localhost:3000',
+]
 
 
 # Application definition
@@ -54,16 +59,11 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
 ]
 
-CSRF_TRUSTED_ORIGINS = [
-    "http://localhost:3000",  # อนุญาตให้ React ที่รันบนพอร์ต 3000 เชื่อมต่อได้
-]
-ALLOWED_HOSTS = [
-    'localhost', '127.0.0.1'
-    'http://localhost:3000'
-    ]
+
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",  # อนุญาตให้ React ที่รันบนพอร์ต 3000 เชื่อมต่อได้
+    "http://localhost:3000",  # หรือโดเมนที่คุณใช้กับ React
 ]
+
 
 ROOT_URLCONF = 'zooproject.urls'
 
