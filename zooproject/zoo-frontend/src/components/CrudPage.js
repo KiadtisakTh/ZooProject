@@ -6,9 +6,10 @@ function CrudPage() {
   const [newAnimal, setNewAnimal] = useState({
     name: '',
     species: '',
+    animal_type: '',  // เพิ่ม animal_type เข้าไปใน state
     age: '',
     description: '',
-    image: null,  // เก็บไฟล์รูปภาพ
+    image: null,
   });
   const [editingAnimal, setEditingAnimal] = useState(null);
 
@@ -26,6 +27,7 @@ function CrudPage() {
     const formData = new FormData();
     formData.append('name', newAnimal.name);
     formData.append('species', newAnimal.species);
+    formData.append('animal_type', newAnimal.animal_type);  // เพิ่ม animal_type ลงใน formData
     formData.append('age', newAnimal.age);
     formData.append('description', newAnimal.description);
     if (newAnimal.image) {
@@ -39,7 +41,7 @@ function CrudPage() {
 
     if (response.ok) {
       fetchAnimals();
-      setNewAnimal({ name: '', species: '', age: '', description: '', image: null });
+      setNewAnimal({ name: '', species: '', animal_type: '', age: '', description: '', image: null });
     }
   };
 
@@ -51,10 +53,13 @@ function CrudPage() {
     const formData = new FormData();
     formData.append('name', editingAnimal.name);
     formData.append('species', editingAnimal.species);
+    formData.append('animal_type', editingAnimal.animal_type);
     formData.append('age', editingAnimal.age);
     formData.append('description', editingAnimal.description);
-    if (editingAnimal.image) {
-        formData.append('image', editingAnimal.image);
+
+    // ตรวจสอบว่ามีการอัปโหลดรูปภาพใหม่หรือไม่
+    if (editingAnimal.image instanceof File) {
+        formData.append('image', editingAnimal.image); // ใช้รูปภาพใหม่
     }
 
     console.log([...formData.entries()]); // ตรวจสอบข้อมูลที่กำลังถูกส่งไปยัง API
@@ -99,6 +104,12 @@ function CrudPage() {
           onChange={(e) => setNewAnimal({ ...newAnimal, species: e.target.value })}
         />
         <input
+          type="text"
+          placeholder="Animal Type"  // อินพุตสำหรับ animal_type
+          value={newAnimal.animal_type}
+          onChange={(e) => setNewAnimal({ ...newAnimal, animal_type: e.target.value })}
+        />
+        <input
           type="number"
           placeholder="Age"
           value={newAnimal.age}
@@ -117,20 +128,21 @@ function CrudPage() {
       </div>
 
       <div className="animals-list">
-  {animals.map((animal) => (
-    <div key={animal.id} className="animal-card">
-      {animal.image && <img src={animal.image} alt={animal.name} />}
-      <p>ชื่อ: {animal.name}</p>
-      <p>สายพันธุ์: {animal.species}</p>
-      <p>อายุ: {animal.age} ปี</p>
-      <p>ข้อมูลเพิ่มเติม: {animal.description}</p>
-      <div className="button-group">
-        <button onClick={() => handleEdit(animal)} className="edit-button">แก้ไข</button>
-        <button onClick={() => handleDelete(animal.id)} className="delete-button">ลบ</button>
+        {animals.map((animal) => (
+          <div key={animal.id} className="animal-card">
+            {animal.image && <img src={animal.image} alt={animal.name} />}
+            <p>ชื่อ: {animal.name}</p>
+            <p>สายพันธุ์: {animal.species}</p>
+            <p>ประเภทสัตว์: {animal.animal_type}</p>  {/* แสดงประเภทสัตว์ */}
+            <p>อายุ: {animal.age} ปี</p>
+            <p>ข้อมูลเพิ่มเติม: {animal.description}</p>
+            <div className="button-group">
+              <button onClick={() => handleEdit(animal)} className="edit-button">แก้ไข</button>
+              <button onClick={() => handleDelete(animal.id)} className="delete-button">ลบ</button>
+            </div>
+          </div>
+        ))}
       </div>
-    </div>
-  ))}
-</div>
 
       {editingAnimal && (
         <div className="edit-form">
@@ -147,6 +159,12 @@ function CrudPage() {
               placeholder="Species"
               value={editingAnimal.species}
               onChange={(e) => setEditingAnimal({ ...editingAnimal, species: e.target.value })}
+            />
+            <input
+              type="text"
+              placeholder="Animal Type"  // อินพุตสำหรับ animal_type ในแบบฟอร์มการแก้ไข
+              value={editingAnimal.animal_type}
+              onChange={(e) => setEditingAnimal({ ...editingAnimal, animal_type: e.target.value })}
             />
             <input
               type="number"

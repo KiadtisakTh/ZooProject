@@ -25,24 +25,28 @@ button:hover {
   background-color: #45a049;
 }
 
+/* การตั้งค่าการแสดงผลของการ์ด */
 .animals-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(6, 1fr); /* กำหนดให้มี 6 คอลัมน์ */
+  gap: 50px 20px; /* เพิ่มระยะห่างระหว่างการ์ดและระหว่างแถว */
+  padding: 20px;
 }
 
+/* การตั้งค่าลักษณะการ์ด */
 .animal-card {
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 10px; /* เพิ่มความโค้งให้กับกรอบ */
   padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  height: 350px;
   background-color: #f9f9f9;
+  height: auto; /* ปรับความสูงอัตโนมัติ */
 }
 
+/* การตั้งค่าสำหรับรูปภาพในการ์ด */
 .animal-card img {
   max-width: 100%;
   max-height: 150px;
@@ -51,6 +55,7 @@ button:hover {
   margin-bottom: 15px;
 }
 
+/* การตั้งค่าสำหรับข้อความในการ์ด */
 .animal-card p {
   margin: 5px 0;
   text-align: center;
@@ -86,6 +91,7 @@ button:hover {
 .animal-card .button-group .delete-button:hover {
   background-color: #e53935; /* สีแดงเข้มขึ้นเมื่อ hover */
 }
+
 
 .edit-form {
   margin-top: 20px;

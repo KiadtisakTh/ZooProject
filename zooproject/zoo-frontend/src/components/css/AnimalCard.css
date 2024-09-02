@@ -3,15 +3,17 @@
   width: 100%;
   max-width: 300px; /* กำหนดขนาดสูงสุดให้การ์ด */
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: #f8f8f8;
+  border-radius: 15px; /* เพิ่มความโค้งให้กับกรอบ */
+  border: 2px solid #e0e0e0; /* เพิ่มสีขอบ */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* เพิ่มความเข้มของเงา */
+  background-color: #ffffff; /* เปลี่ยนพื้นหลังเป็นสีขาว */
   text-align: left;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between; /* กระจายพื้นที่ระหว่างเนื้อหา */
   height: 100%; /* ทำให้การ์ดมีขนาดเท่ากัน */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* เพิ่มการเปลี่ยนแปลงเมื่อโต้ตอบ */
 }
 
 /* การตั้งค่าสำหรับรูปภาพ */
@@ -40,19 +42,25 @@
   margin: 5px 0;
 }
 
-/* การจัดการวาง layout ให้มี 6 การ์ดต่อแถว */
+/* การเพิ่มเอฟเฟกต์ hover */
+.card:hover {
+  transform: translateY(-5px); /* ขยับการ์ดขึ้นเล็กน้อย */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* เพิ่มเงาเมื่อวางเมาส์ */
+  border-color: #a0a0a0; /* เปลี่ยนสีขอบเมื่อวางเมาส์ */
+}
+
+/* การจัดการวาง layout ให้มี 6 การ์ดต่อแถว พร้อมระยะห่างระหว่างแถว */
 .animals-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* จัดให้มีคอลัมน์ที่ยืดหยุ่น */
-  gap: 30px; /* เพิ่มระยะห่างระหว่างการ์ด */
+  grid-template-columns: repeat(6, 1fr); /* กำหนดให้มี 6 คอลัมน์ */
+  gap: 30px 10px; /* เพิ่มระยะห่างระหว่างการ์ด 30px และระหว่างแถว 10px */
   padding: 20px; /* เพิ่ม padding รอบๆ เพื่อให้การ์ดไม่ติดกับขอบ */
-  justify-content: center;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* ปรับให้มีคอลัมน์ยืดหยุ่น */
-  gap: 30px; /* เพิ่มระยะห่างระหว่างการ์ด */
+  grid-template-columns: repeat(5, 1fr); /* ปรับให้มี 6 คอลัมน์ */
+  gap: 100px 1px; /* เพิ่มระยะห่างระหว่างการ์ด 30px และระหว่างแถว 10px */
   padding: 20px; /* เพิ่ม padding รอบๆ เพื่อให้การ์ดไม่ติดกับขอบ */
   justify-content: center;
 }

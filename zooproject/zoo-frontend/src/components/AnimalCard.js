@@ -8,7 +8,8 @@ function AnimalCard({ animal }) {
       <div className="animal-info">
         <h3>ชื่อ: {animal.name}</h3>
         <p>สายพันธุ์: {animal.species}</p>
-        <p>อายุ: {animal.age} ปี</p>
+        <p>ประเภทสัตว์: {animal.animal_type}</p>
+        <p>อายุเฉลี่ย: {animal.age} ปี</p>
         <p>คำอธิบายเพิ่มเติม: {animal.description}</p>
       </div>
     </div>
